@@ -1,0 +1,42 @@
+###
+# link pomocu kojeg napravis usera
+POST http://localhost:1235/users
+Content-Type: application/json
+
+{
+    "username": "Dzemal",
+    "password": "password"
+}
+
+###
+#link pomocu kojeg se verifukuju useri
+POST http://localhost:1235/users/login
+Content-Type: application/json
+
+{
+    "username": "Dzemal",
+    "password": "password"
+}
+
+###
+
+GET http://localhost:1235/users
+
+###
+# refreshanje tokena ako prosli token se izgubi
+
+POST http://localhost:1235/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRHplbWFsIiwiaWF0IjoxNjU1NzE2NDg1LCJleHAiOjE2NTU3MTczODV9.-I9hIC1oroLxrJnw9fknfKqKZsm2bUhV1_3RxzUwgWg"
+}
+
+###
+# link pomocu tokena salje zavrsne podatke
+GET http://localhost:7002/posts 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRHplbWFsIiwiaWF0IjoxNjU1NzE2NDg1LCJleHAiOjE2NTU3MTczODV9.-I9hIC1oroLxrJnw9fknfKqKZsm2bUhV1_3RxzUwgWg
+###
+
+
+
